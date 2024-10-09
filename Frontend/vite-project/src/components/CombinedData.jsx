@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axiosInstance from '../helper/axiosInstance';
-import ReactJson from 'react-json-view'; // Import the JSON view component
 
 const CombinedData = () => {
     const [month, setMonth] = useState('3'); // Default month set to March
@@ -63,15 +62,11 @@ const CombinedData = () => {
             </div>
             {error && <p className="text-red-500">{error}</p>}
             {data && Object.keys(data).length > 0 && (
-                <div className="mt-4">
-                    <h3 className="font-bold">JSON Data:</h3>
-                    <ReactJson
-                        src={data}
-                        theme="monokai" // Set the theme to dark
-                        style={{ padding: '10px', background: '#282c34' }} // Customize background and padding
-                        collapsed={true} // Expand all by default
-                        enableClipboard={false} // Allow copying JSON
-                    />
+                <div className="mt-4 max-h-96 overflow-auto border p-4 bg-gray-800 rounded-lg">
+                    <h3 className="font-bold text-white">JSON Data:</h3>
+                    <pre className="text-white">
+                        {JSON.stringify(data, null, 2)} {/* Formatting the JSON with indentation */}
+                    </pre>
                 </div>
             )}
         </div>
