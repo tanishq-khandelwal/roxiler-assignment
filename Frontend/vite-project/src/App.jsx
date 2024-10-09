@@ -36,7 +36,7 @@ const App = () => {
           <li className="flex items-center space-x-2">
           <FontAwesomeIcon icon={faGithub} className="text-black" />
             <Link
-              to="/statistics"
+              to="https://github.com/tanishq-khandelwal/roxiler-assignment/"
               className="text-gray-800 font-semibold text-lg hover:text-black-200 transition"
             >
               Repo Link

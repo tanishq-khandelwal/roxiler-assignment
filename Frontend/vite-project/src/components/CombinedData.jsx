@@ -43,14 +43,14 @@ const CombinedData = () => {
 
     return (
         <div className="p-4">
-            <div className="flex">
-                <h2 className="text-2xl font-bold mb-4">
+            <div className="flex flex-col sm:flex-row justify-between items-center mb-4">
+                <h2 className="text-2xl font-bold">
                     Combined Data - {months.find(m => m.value === month)?.label || 'N/A'}
                 </h2>
                 <select
                     value={month}
                     onChange={handleMonthChange}
-                    className="border p-2 ml-[17rem] rounded-lg border-solid border-gray-300 shadow-xl"
+                    className="border p-2 rounded-lg border-solid border-gray-300 shadow-xl w-full sm:w-auto mt-2 sm:mt-0"
                 >
                     <option value="">Select Month</option>
                     {months.map((m) => (
@@ -64,7 +64,7 @@ const CombinedData = () => {
             {data && Object.keys(data).length > 0 && (
                 <div className="mt-4 max-h-96 overflow-auto border p-4 bg-gray-800 rounded-lg">
                     <h3 className="font-bold text-white">JSON Data:</h3>
-                    <pre className="text-white">
+                    <pre className="text-white whitespace-pre-wrap">
                         {JSON.stringify(data, null, 2)} {/* Formatting the JSON with indentation */}
                     </pre>
                 </div>

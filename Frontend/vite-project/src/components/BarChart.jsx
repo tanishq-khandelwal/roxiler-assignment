@@ -97,7 +97,6 @@ const BarChart = () => {
             legend: {
                 position: 'top',
             },
-            
         },
         scales: {
             x: {
@@ -122,22 +121,22 @@ const BarChart = () => {
 
     return (
         <div className="p-4">
-            <div className='flex'>
-            <h2 className="text-2xl font-bold mb-4">
-  Bar Chart Stats - {months.find(m => m.value === month)?.label || 'N/A'}
-</h2>
-            <select
-                value={month}
-                onChange={handleMonthChange}
-                className="border p-2 ml-[17rem] rounded-lg  border-solid border-gray-300 shadow-xl "
-            >
-                <option value="">Select Month</option>
-                {months.map((m) => (
-                    <option key={m.value} value={m.value}>
-                        {m.label}
-                    </option>
-                ))}
-            </select>
+            <div className='flex flex-col md:flex-row md:items-center md:justify-between'>
+                <h2 className="text-2xl font-bold mb-4 md:mb-0">
+                    Bar Chart Stats - {months.find(m => m.value === month)?.label || 'N/A'}
+                </h2>
+                <select
+                    value={month}
+                    onChange={handleMonthChange}
+                    className="border p-2 mt-2 md:mt-0 rounded-lg border-solid border-gray-300 shadow-xl w-full md:w-auto"
+                >
+                    <option value="">Select Month</option>
+                    {months.map((m) => (
+                        <option key={m.value} value={m.value}>
+                            {m.label}
+                        </option>
+                    ))}
+                </select>
             </div>
             {error && <p className="text-red-500">{error}</p>}
             {chartData && (

@@ -64,7 +64,6 @@ const PieChart = () => {
                         borderColor: 'rgba(255, 255, 255, 1)',
                         borderWidth: 1,
                     },
-
                 ],
             };
 
@@ -77,14 +76,14 @@ const PieChart = () => {
 
     return (
         <div className="p-4">
-            <div className='flex'>
-                <h2 className="text-2xl font-bold mb-4">
+            <div className='flex flex-col md:flex-row md:items-center md:justify-between'>
+                <h2 className="text-2xl font-bold mb-4 md:mb-0">
                     Pie Chart Stats - {months.find(m => m.value === month)?.label || 'N/A'}
                 </h2>
                 <select
                     value={month}
                     onChange={handleMonthChange}
-                    className="border p-2 ml-[17rem] rounded-lg border-solid border-gray-300 shadow-xl"
+                    className="border p-2 mt-2 md:mt-0 rounded-lg border-solid border-gray-300 shadow-xl w-full md:w-auto"
                 >
                     <option value="">Select Month</option>
                     {months.map((m) => (
@@ -96,8 +95,10 @@ const PieChart = () => {
             </div>
             {error && <p className="text-red-500">{error}</p>}
             {chartData && (
-                <div className="mt-4 h-[20rem] w-[30rem] flex justify-center items-center ml-[5rem]">
-                    <Pie data={chartData} />
+                <div className="mt-4 flex justify-center items-center overflow-hidden">
+                    <div className="w-full max-w-[400px] h-[300px]">
+                        <Pie data={chartData} />
+                    </div>
                 </div>
             )}
         </div>

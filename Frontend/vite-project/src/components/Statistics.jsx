@@ -43,7 +43,7 @@ const Statistics = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg  ">
+        <div className="max-w-4xl mx-auto bg-white p-6 md:p-8 rounded-lg shadow-md">
             <h2 className="text-3xl font-bold mb-6 text-gray-900">
                 Statistics - {months.find(m => m.value === month)?.label || 'N/A'}
             </h2>
@@ -52,7 +52,7 @@ const Statistics = () => {
                 <select
                     value={month}
                     onChange={handleMonthChange}
-                    className="border p-3 w-full rounded-lg border-gray-300 bg-white text-gray-700  focus:outline-none focus:ring focus:ring-blue-500"
+                    className="border p-3 w-full rounded-lg border-gray-300 bg-white text-gray-700 focus:outline-none focus:ring focus:ring-blue-500"
                 >
                     <option value="">Select Month</option>
                     {months.map((m) => (
@@ -64,17 +64,17 @@ const Statistics = () => {
             </div>
             {error && <p className="text-red-500">{error}</p>}
             {data && (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-                    <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-                        <h3 className="text-xl font-semibold mb-4">Total Sale</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+                    <div className="bg-gray-100 p-4 md:p-6 rounded-lg shadow-lg">
+                        <h3 className="text-xl font-semibold mb-2">Total Sale</h3>
                         <p className="text-3xl font-bold text-gray-800">{data.totalSaleAmount}</p>
                     </div>
-                    <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-                        <h3 className="text-xl font-semibold mb-4">Total Sold Items</h3>
+                    <div className="bg-gray-100 p-4 md:p-6 rounded-lg shadow-lg">
+                        <h3 className="text-xl font-semibold mb-2">Total Sold Items</h3>
                         <p className="text-3xl font-bold text-gray-800">{data.totalSoldItems}</p>
                     </div>
-                    <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-                        <h3 className="text-xl font-semibold mb-4">Total Not Sold Items</h3>
+                    <div className="bg-gray-100 p-4 md:p-6 rounded-lg shadow-lg">
+                        <h3 className="text-xl font-semibold mb-2">Total Not Sold Items</h3>
                         <p className="text-3xl font-bold text-gray-800">{data.totalNotSoldItems}</p>
                     </div>
                 </div>
