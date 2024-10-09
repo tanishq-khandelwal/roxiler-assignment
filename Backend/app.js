@@ -22,7 +22,7 @@ app.set("trust proxy", 1);
 
 app.use(
     cors({
-      origin: ["http://localhost:5173","https://roxiler-assignment-fawn.vercel.app/"],
+      origin: ["http://localhost:5173","https://roxiler-assignment-fawn.vercel.app"],
       credentials: true,
       httpOnly: false,
       optionSuccessStatus: 200,
